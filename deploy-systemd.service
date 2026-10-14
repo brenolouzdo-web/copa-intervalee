@@ -1,0 +1,15 @@
+# /etc/systemd/system/copa.service   ->   sudo systemctl enable --now copa
+[Unit]
+Description=Copa Inter Vale
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/srv/copa-intervale
+EnvironmentFile=/srv/copa-intervale/.env
+ExecStart=/srv/copa-intervale/venv/bin/gunicorn app:app -c gunicorn.conf.py
+Restart=always
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

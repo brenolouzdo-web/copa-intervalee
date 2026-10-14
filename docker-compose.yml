@@ -1,0 +1,14 @@
+services:
+  copa:
+    build: .
+    restart: unless-stopped
+    ports: ["8000:8000"]
+    env_file: .env
+    environment:
+      DATABASE: /dados/copa.db
+      UPLOADS_DIR: /dados/uploads
+      INSTANCE_DIR: /dados
+    volumes:
+      - dados:/dados          # banco, chaves e fotos enviadas pelo painel
+volumes:
+  dados:

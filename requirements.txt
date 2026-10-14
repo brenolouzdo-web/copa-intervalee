@@ -1,0 +1,4 @@
+Flask>=3.0,<4
+cryptography>=42
+gunicorn>=22
+# opcional (muitos torcedores ao mesmo tempo): pip install gevent  e use WORKER_CLASS=gevent
